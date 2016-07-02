@@ -3,8 +3,11 @@ An in-depth look at thinking about CSS in modular way.
 
 >**_Prologue_**
 
+
 >This is a port-over into git of a document I wrote to help front-end team members align their CSS coding approach.  It evolved from my experience with [SMACSS](https://smacss.com/ "A flexible guide to developing sites small and large.") and working with enterprise sized web sites. It’s re-write as a [condensed style guide here](https://github.com/nathanielkess/CSS-Style-Guide "A component base CSS style guide taking ques from OOCS and SMACSS.").
 
+
+##Overview
 This CSS pattern is an organization technique optimized for large-scale websites. It is based off [SMACSS](https://smacss.com/) and is meant to serve as an approach to authoring CSS and HTML. The goal of this outline is to sync up coding styles for project team members to ensure CSS/html code is predictable efficient and scalable. 
 
 Read the introduction of [SMACSS here](https://smacss.com/book/) to get a base understanding for the rest of this document.
