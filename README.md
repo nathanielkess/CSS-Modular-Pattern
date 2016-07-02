@@ -1,9 +1,7 @@
 # CSS Modular Pattern
 An in-depth look at thinking about CSS in modular way.
 
->**_Prologue_**
-
-
+>**_Prologue_**  
 >This is a port-over into git of a document I wrote to help front-end team members align their CSS coding approach.  It evolved from my experience with [SMACSS](https://smacss.com/ "A flexible guide to developing sites small and large.") and working with enterprise sized web sites. It’s re-write as a [condensed style guide here](https://github.com/nathanielkess/CSS-Style-Guide "A component base CSS style guide taking ques from OOCS and SMACSS.").
 
 
@@ -116,3 +114,5 @@ Each module is clearly separated by a space and a single indent. This “**node*
 
 ###3 Guidelines for creating modules
 
+**1. Always use a CSS class to define a module**
+Although a module may be used once at the time of creation, it can be used again on other pages down the road or even multiple times on the same page. For this reason it’s important to always use a class to style and identify a module. IDs should not be used to style a module because they are only allowed once per page. IDs should instead be reserved for Layout components, JavaScript hooks or instance-specific overrides.
