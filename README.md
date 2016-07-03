@@ -14,7 +14,7 @@ Read the [introduction of SMACSS](https://smacss.com/book/) to get a base unders
 ###High level organization
 At a high level, styles are broken out into three sections in a given CSS document: **base**, **layout** and **module**.
 
-**image placeholder**
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/CodeScreenshot.jpg "CSS Organized - High level")
 
 **Base:** Base styles are defaults directly applied to html selectors. This section sets any base styles that given elements should default to. For example, the default brand appearance for `<a>` tags. Base rules are typically applied directly to HTML tags (as opposed to IDs or classes).
 
@@ -25,30 +25,31 @@ At a high level, styles are broken out into three sections in a given CSS docume
 ##Base
 Base styles are applied directly to HTML attributes. They assume how an element should look in all occurrences site-wide. For websites that follow a brand (all websites, right?), this sections is perfect for setting global brand specific defaults; i.e. font faces, hyperlink colours etc.
 
-**image placeholdeer**
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/baseRules.jpg "Base Rules")
 
 The Base section is generally short and should be carefully constructed. Setting default styles on too many elements in this section (much like reset files do) will cause redundant overrides later on. It also leaves a wide gab for inconsistency. Consider the following Base styles from a commonly used [reset style sheet](https://github.com/murtaugh/HTML5-Reset/blob/master/assets/css/reset.css "Example of a reset style sheet"):
 
-**image placeholder**
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/resetCSS.jpg "Reset Styles")
 
 It’s common practice on reset files to blow out the browsers default styles on things like HTML lists. On CMS websites littered with WYSIWUG controls or copy resource files; it’s up to the interface developer to re-implement bullet lists styles anywhere that free text can exist (basically anywhere on the site). This is where inconsistencies and code duplication creep in. Even worse, you end up dancing around over-qualified CSS selectors as you go deeper into the site.
 
 To explain further - lets assume that the reset CSS above is applied to the following website. Padding, margin and list-style-types are removed site-wide
 
-
-**Imaage placeholder**
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/SiteDefaultcopy.jpg "Website example")
 
 Perhaps, later, on that website there’s some text in the “main content” section that includes bullets lists. To support this, you would have to re-apply (or override) the removed styles from the previous reset code block.
 
-**image placeholder**
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/SiteWithBullets.jpg "Website example with bullets")
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/mainContentResetOverride.jpg "Reset Override")
 
 Then you might have a component, like a carousel, in the main content that uses a `<ul>` as it’s markup. This now involves overriding that already overridden styles!
 
-**image**
+**Image**
 
 Notice how the selectors get longer and longer. This get worse the further in you go. Image you need to use that same “carousel” outside of `#mainContent`. You would need to duplicate the `<ul>` and `<li>` rules inside “.carousel” with `#mainContent` *unspecified*
 
-**image**
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/carouselSideBar.jpg "Carousel in sidebar")
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/carouselUnspecified.jpg "Carousel unspecified")
 
 Avoid reset files, instead, carefully craft your default styles and consider how elements will need to be re-used across the website.
 Please read the [Base section of SMACSS](https://smacss.com/book/type-base) for further details..
