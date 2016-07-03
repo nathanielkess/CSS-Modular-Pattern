@@ -8,7 +8,7 @@ An in-depth look at thinking about CSS in modular way.
 ##Overview
 This CSS pattern is an organization technique optimized for large-scale websites. It is based off [SMACSS](https://smacss.com/) and is meant to serve as an approach to authoring CSS and HTML. The goal of this outline is to sync up coding styles for project team members to ensure CSS/html code is predictable efficient and scalable. 
 
-Read the introduction of [SMACSS here](https://smacss.com/book/) to get a base understanding for the rest of this document.
+Read the [introduction of SMACSS](https://smacss.com/book/) to get a base understanding for the rest of this document.
 
 
 ###High level organization
