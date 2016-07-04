@@ -94,24 +94,25 @@ First find the **suitable lowest level parent element** to work from as the modu
 
 However, you should consider that one of the “**vehicleHighlight**” components might need to be reused elsewhere, like inside a carousel or the sidebar.
 
-**Image**
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/sideBarhightlight.jpg "CTA in Sidebar")
 
 With that said, the lowest suitable parent should be at the root of a single component (the `<li>`), not multiple (the `<ul>`). This way the reusable bit becomes a stand-alone component (or module) agnostic of its parent element.
 
-**Image**
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/liRoot.png "Proper root level module in list")
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/vehicleInSideBarCode.png "Proper root level module in sidebar")
 
 Once you identify the suitable lowest level parent as your module’s root, the rest is very basic CSS and markup coding. However, in contradiction with SMACSS, try to leverage HTML tags as style hooks for the guts of a module. Generally there’s no need to dress up any of the child elements with classes, you can instead leverage the semantics of HTML 5 to apply styles. By following this approach other developers can make clear assumptions about the CSS by simply looking at the HTML markup. In the HTML markup below you can assume that each CSS class epresents a standalone module.
 
-**Image**
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/moduleNodes.png "CSS Module Nodes")
 
 The following CSS shows the default styles for each of these standalone modules. Note how each module is “chunked” off as its own
 self-contained node. Each “node” represents a single module.
 
-**IMage**
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/cssModuleNodes.png "CSS Module Nodes")
 
 Each module is clearly separated by a space and a single indent. This “**node**” structure applies to the "Layout" section too. The end result is a CSS document that is highly scannable and easy to navigate. With these patterns in place, developers can examine a CSS document in an organized hierarchical way, quickly filtering out big groups of CSS as they narrow down from **Section > Node > Line**. As opposed to the traditional top to bottom / line-by-line.
 
-**Image**
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/hierachy.png "CSS Organized for scanning")
 
 
 ###3 Guidelines for creating modules
@@ -122,19 +123,23 @@ Although a module may be used once at the time of creation, it can be used again
 **2. A module’s style is defined with one selector and not qualified with a tag**  
 A powerful feature of the modular pattern is that **modules are reusable**. On order to maintain this feature each module’s default style should be written with the “**lowest selector specificity**”.
 
-**Image**
+High selector specificity (poor):
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/highSelector.jpg "poor selector specificity")
+
+Low selector specificity (efficient):
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/lowSelector.jpg "efficient selector specificity")
 
 By using a single class name (without a qualifying tag) as the selector for a module you’re ensuring that, by default, the module that you’re creating is designed to be a stand-alone component. This allows you to drop the component anywhere on any page without regard of the root element or the parent structure.The CSS below does not follow by this guideline. It styles the `.vehicleHighlight` relative to the `#sidebar`.
 
-**Image**
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/highSelector.jpg "poor selector specificity")
 
 It assumes “vehicleHighlight” will only ever exist in the sidebar. Later if you need to add “vehicleHightlight” inside a carousel you’ll have to duplicate the same code for the carousel.
 
-**Image**
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/carouselVehicle.jpg "poor selector specificity")
 
 This code duplication is avoided by using single classes as the selector (**Low selector specificity**).
 
-**IMage**
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/lowSelector.jpg "efficient selector specificity")
 
 **3. A module’s default style does not have layout or position rules applied**
 
@@ -142,7 +147,9 @@ Another powerful feature of the modular pattern is: **modules are easy to extend
 
 Earlier in this document we created a .vehicleHightlight module. let’s consider that same module used multiple times on the same page. Below you can see it is first used inside the main content of a page.
 
-**IMage**
+First instance of "VehicleHighlight" used.
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/siteVehicleMainCopy.jpg "CTA in body copy")
+
 
 Next you need to use the same module elsewhere - inside a carousel and the sidebar.
 
