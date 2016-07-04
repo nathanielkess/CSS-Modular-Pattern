@@ -84,13 +84,13 @@ Be sure to read the [Layout section of SMACSS](https://smacss.com/book/type-layo
 
 Modules or “minor components” are the bits that make up the content of the site. Carousels, twitter feeds, call-outs, sub navigations tabbed boxes etc. are examples of modules. Modules site within layout components or inside other modules. Modules are designed to exist as standalone components and, when built correctly, are reusable and easy to extend. When a module is created it should be built relative the entire website, not a particular page or section. It’s important to keep this last point in mind while developing; it will ensure modules are built for reusability.
 
-To build a module, start by finding the **suitable lowest level parent element of a component**. Use that as the root of the module and build inwards. (In contradiction with SMACSS, try to leverage the semantics of HTML tags as style hooks for the guts of a module. More on this later.) Consider the following: the site below has a grid of vehicles with titles, descriptions and a call to action buttons.
+To build a module, start by finding the **suitable lowest level parent element of a component**. Use that as the root of the module and build inwards. (Contrary to SMACSS, try to leverage the semantics of HTML tags as style hooks for the guts of a module. More on this later.) Consider the following: the site below has a grid of vehicles with titles, descriptions and a call to action buttons.
 
-**Image**
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/gridOfCars.jpg "Page with modules")
 
 First find the **suitable lowest level parent element** to work from as the module: In this example you can identify a basic list (grid) of vehicles so perhaps we can use an unordered list as our markup and use the `<ul>` with a class of `.vehicleHighlights` as the lowest level parent element for the module. Like so:
 
-**Image**
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/ulRoot.png "Module: vehicleHighlights")
 
 However, you should consider that one of the “**vehicleHighlight**” components might need to be reused elsewhere, like inside a carousel or the sidebar.
 
