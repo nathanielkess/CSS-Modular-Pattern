@@ -150,20 +150,27 @@ Earlier in this document we created a .vehicleHightlight module. let’s conside
 First instance of "VehicleHighlight" used.
 ![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/siteVehicleMainCopy.jpg "CTA in body copy")
 
+Default styles for "vehicleHighlight" module.
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/codeVehicleMainContent.jpg "CSS for CTA in body copy")
 
 Next you need to use the same module elsewhere - inside a carousel and the sidebar.
 
-**Image**
+"VehicleHighlight" modules used multiples times on a page.
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/siteVehicleSidebarandCarousel.jpg "CTA in multiple spots")
+
+"VehicleHighlight" poorly extended in "carousel" and "sideBar".
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/codeOverrides.jpg "CSS for CTA in multiple spots")
+
 
 Examine the highlighted CSS code. The yellow CSS in the default style node is where the problem starts. It breaks the “no layout or position” rule by setting a default **width**, **margin** and **float**. Because of this, every time this module gets reused those rules will need to be redundantly overridden (see the blue highlighted CSS).
 
 This is avoided by removing the layout and position rules from the default module’s style (see code below). The only place where "vehicleHightlight" needs position rules applied is in the main content section. For this, the module gets **extended** by the parent node (see yellow highlighted code below).
 
-**Image**
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/codeOverrideNoPosition.jpg "relative position override")
 
 This practice circles all the way back the layout section. Remember in an earlier example we were asked to increase the width of the sidebar to fit space for advertisements? If all of our modules were styled with **size and position rules** (fixed widths), than altering a major layout width (like the sidebar) would spell disaster. Each component on the page site-wide would require updates to their widths (and probably padding and margins etc…). The testing involved to correct this on a large website would be a daunting task.
 
-**IMage**
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/SiteFixedWidthModules.jpg "improper size settings at modular level")
 
 Simply put, build each module as fluid components that conform to the available width set by their parent node. If position rules, like widths, needs to be set directly on a module, set the width from the parent container node in the CSS document.
 
