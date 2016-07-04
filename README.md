@@ -74,7 +74,7 @@ It’s a simple ask and without following any organization pattern, it generally
 
 Each time you search for a line of CSS you’re hunting through 100% of the other CSS rules. Note how “major components” of a page are greatly affected by one another. By keeping “major component” rules organized together in the **Layout** section of the CSS document; yourself and future developers can quickly filter out a rough 60% of the CSS rules and focus in on the just the layout pieces. This is a huge time saver.
 
-![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/cssOrganized.jpg "Organized CSS")
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/cssOrganized.png "Organized CSS")
 
 A final thought about the Layout section is the use of ID’s for CSS styling. Layout elements of a site are not mean to be reusable. Like a template, the markup for layout pieces are consistent from page to page and should be identified and styled with IDs. This pattern gives developers a great deal of insight about the CSS by just looking at the markup. A developer can assume that all the HTML markup with IDs applied are the big layout pieces (or some kind of JavaScript hook). And all the markup with classes applied are the reusable bits called "**modules**" explained in the next section.
 
