@@ -44,9 +44,10 @@ Perhaps, later, on that website there’s some text in the “main content” se
 
 Then you might have a component, like a carousel, in the main content that uses a `<ul>` as it’s markup. This now involves overriding that already overridden styles!
 
-**Image**
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/SiteWithBulletsAndCarousel.jpg "Page with bullets and carousel")
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/carouselOverride.jpg "Carousel override")
 
-Notice how the selectors get longer and longer. This get worse the further in you go. Image you need to use that same “carousel” outside of `#mainContent`. You would need to duplicate the `<ul>` and `<li>` rules inside “.carousel” with `#mainContent` *unspecified*
+Notice how the selectors get longer and longer. This get worse the further in you go. Imagin you need to use that same “carousel” outside of `#mainContent`. You would need to duplicate the `<ul>` and `<li>` rules inside “.carousel” with `#mainContent` *unspecified*
 
 ![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/carouselSideBar.jpg "Carousel in sidebar")
 ![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/carouselUnspecified.jpg "Carousel unspecified")
@@ -57,23 +58,23 @@ Please read the [Base section of SMACSS](https://smacss.com/book/type-base) for 
 ##Layout
 The components of a page (or site) can be broken out into two categories: **Minor components** and **major components**. The minor components (or modules) are the small bits of the site – CTAs, buttons, carousels, accordions, sub navigations etc…
 
-**Image**
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/minorComponents.jpg "Page minor components")
 
 The major components are the big “scaffolding” pieces that hold all the minor components in place – header, footer, sidebar, main content etc…
 
-**Image**
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/majorComponents.jpg "Page major components")
 
-The major components are the **layout** pieces and should sit in the **layout** section of the CSS document. Following this guideline is a simple way boost the predictability of CSS code. Consider the following task: You need to widen the sidebar to 300px to make room for advertisements.
+The major components _are_ the **layout** pieces and should sit in the **layout** section of the CSS document. Following this guideline is a simple way boost the predictability of CSS code. Consider the following task: You need to widen the sidebar to 300px to make room for advertisements.
 
-**Image**
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/addBanner.jpg "Add a banner")
 
 It’s a simple ask and without following any organization pattern, it generally involves starting at the top of a CSS document and scrolling down until you find the `#sidebar` rule to make the update. You’ll have to repeat the same process for the `#mainContent` section since it will need to be reduced to compensate for the new sidebar width. Again, start at the top and work down until you find the `#mainContent` rule for the update. However, before you can make that update you’ll need to know the width of the parent container (`#siteContainer`) so you can do the math to figure out the new `#mainContent` width for everything to fit nicely. …Repeat the search for #siteContent.
 
-**Image**
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/cssUnorganized.jpg "Unorganized CSS")
 
 Each time you search for a line of CSS you’re hunting through 100% of the other CSS rules. Note how “major components” of a page are greatly affected by one another. By keeping “major component” rules organized together in the **Layout** section of the CSS document; yourself and future developers can quickly filter out a rough 60% of the CSS rules and focus in on the just the layout pieces. This is a huge time saver.
 
-**Image**
+![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/cssOrganized.jpg "Organized CSS")
 
 A final thought about the Layout section is the use of ID’s for CSS styling. Layout elements of a site are not mean to be reusable. Like a template, the markup for layout pieces are consistent from page to page and should be identified and styled with IDs. This pattern gives developers a great deal of insight about the CSS by just looking at the markup. A developer can assume that all the HTML markup with IDs applied are the big layout pieces (or some kind of JavaScript hook). And all the markup with classes applied are the reusable bits called "**modules**" explained in the next section.
 
