@@ -6,7 +6,7 @@ An in-depth look at thinking about CSS in modular way.
 
 
 ##Overview
-This CSS pattern is an organization technique optimized for large-scale websites. It is based off [SMACSS](https://smacss.com/) and is meant to serve as an approach to authoring CSS and HTML. The goal of this outline is to sync up coding styles for project team members to ensure CSS/html code is predictable efficient and scalable. 
+This CSS pattern is an organization technique optimized for large-scale websites. It is based off [SMACSS](https://smacss.com/) and is meant to serve as an approach to authoring CSS and HTML. The goal of this outline is to sync up coding styles for project team members to ensure CSS/html code is predictable, efficient and scalable. 
 
 Read the [introduction of SMACSS](https://smacss.com/book/) to get a base understanding for the rest of this document.
 
@@ -20,10 +20,12 @@ At a high level, styles are broken out into three sections in a given CSS docume
 
 **Layout** This space is reserved for major layout pieces that house the small bits (or modules) of the site. Things like the site header, footer and sidebar. These sections are traditionally styled using IDs so most of the selectors in this portion are targeted by a single ID.
 
-**Module:** These are the reusable bits. Buttons, call to actions, carousels, lists etc... When a module is defined well it can be thought of it as a new item in your “toolbox”. You can drop a module anywhere on any pages and it should conform to fit within its parent with minimal to no adjustments in the CSS. Necessary adjustments per instance happen on the parent level and should not take much to override.
+**Module:** These are the reusable bits. Buttons, call to actions, carousels, lists etc... 
+A well defined module can be dropped anywhere on any pages and it should conform to fit within its parent with minimal to no adjustments in the CSS. Necessary adjustments per instance happen on the parent level and should not take much to override.
 
 ##Base
-Base styles are applied directly to HTML attributes. They assume how an element should look in all occurrences site-wide. For websites that follow a brand (all websites, right?), this sections is perfect for setting global brand specific defaults; i.e. font faces, hyperlink colours etc.
+Base styles are applied directly to HTML attributes. They assume how an element should look in all occurrences site-wide.
+This sectino is ideal for setting global brand specific defaults; i.e. font faces, hyperlink colours etc.
 
 ![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/baseRules.jpg "Base Rules")
 
@@ -101,7 +103,7 @@ With that said, the lowest suitable parent should be at the root of a single com
 ![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/liRoot.png "Proper root level module in list")
 ![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/vehicleInSideBarCode.png "Proper root level module in sidebar")
 
-Once you identify the suitable lowest level parent as your module’s root, the rest is very basic CSS and markup coding. However, in contradiction with SMACSS, try to leverage HTML tags as style hooks for the guts of a module. Generally there’s no need to dress up any of the child elements with classes, you can instead leverage the semantics of HTML 5 to apply styles. By following this approach other developers can make clear assumptions about the CSS by simply looking at the HTML markup. In the HTML markup below you can assume that each CSS class epresents a standalone module.
+Once you identify the suitable lowest level parent as your module’s root, the rest is very basic CSS and markup coding. However, in contradiction with SMACSS, try to leverage HTML tags as style hooks for the guts of a module. Generally there’s no need to dress up any of the child elements with classes, you can instead leverage the semantics of HTML 5 to apply styles. By following this approach other developers can make clear assumptions about the CSS by simply looking at the HTML markup. In the HTML markup below you can assume that each CSS class represents a standalone module.
 
 ![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/moduleNodes.png "CSS Module Nodes")
 
@@ -129,7 +131,7 @@ High selector specificity (poor):
 Low selector specificity (efficient):
 ![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/lowSelector.jpg "efficient selector specificity")
 
-By using a single class name (without a qualifying tag) as the selector for a module you’re ensuring that, by default, the module that you’re creating is designed to be a stand-alone component. This allows you to drop the component anywhere on any page without regard of the root element or the parent structure.The CSS below does not follow by this guideline. It styles the `.vehicleHighlight` relative to the `#sidebar`.
+By using a single class name (without a qualifying tag) as the selector for a module you’re ensuring that, by default, the module that you’re creating is designed to be a stand-alone component. This allows you to drop the component anywhere on any page without regard of the root element or the parent structure.The CSS below does not follow this guideline. It styles the `.vehicleHighlight` relative to the `#sidebar`.
 
 ![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/highSelector.jpg "poor selector specificity")
 
@@ -145,7 +147,7 @@ This code duplication is avoided by using single classes as the selector (**Low 
 
 Another powerful feature of the modular pattern is: **modules are easy to extend**. To achieve this, a module's default style cannot contain any rules that affect it's size, position or surrounding elements. (margins, floats, widths, heights etc..) In the modular CSS pattern it's up to the parent container of a module to sets **size and position rules**. Read on to see an example that breaks this rule and how to correct it.
 
-Earlier in this document we created a .vehicleHightlight module. let’s consider that same module used multiple times on the same page. Below you can see it is first used inside the main content of a page.
+Earlier in this document we created a `.vehicleHightlight` module. Let’s consider that same module used multiple times on the same page. Below you can see it is first used inside the main content of a page.
 
 First instance of "VehicleHighlight" used.
 ![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/siteVehicleMainCopy.jpg "CTA in body copy")
@@ -168,7 +170,7 @@ This is avoided by removing the layout and position rules from the default modul
 
 ![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/codeOverrideNoPosition.jpg "relative position override")
 
-This practice circles all the way back the layout section. Remember in an earlier example we were asked to increase the width of the sidebar to fit space for advertisements? If all of our modules were styled with **size and position rules** (fixed widths), than altering a major layout width (like the sidebar) would spell disaster. Each component on the page site-wide would require updates to their widths (and probably padding and margins etc…). The testing involved to correct this on a large website would be a daunting task.
+This practice circles all the way back the layout section. Remember in an earlier example we were asked to increase the width of the sidebar to fit space for advertisements? If all of our modules were styled with **size and position rules** (fixed widths), than altering a major layout width (like the sidebar) would spell disaster. Each component on the page, site-wide, would require updates to their widths (and probably padding and margins etc…). The testing involved to correct this on a large website would be a daunting task.
 
 ![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/SiteFixedWidthModules.jpg "improper size settings at modular level")
 
