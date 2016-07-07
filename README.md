@@ -125,11 +125,15 @@ Although a module may be used once at the time of creation, it can be used again
 **2. A module’s style is defined with one selector and not qualified with a tag**  
 A powerful feature of the modular pattern is that **modules are reusable**. On order to maintain this feature each module’s default style should be written with the “**lowest selector specificity**”.
 
-High selector specificity (poor):
-![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/highSelector.jpg "poor selector specificity")
+**High selector specificity (poor):**
+```css
+aside.sidebar div.vehicleHightlight {  }
+```
 
-Low selector specificity (efficient):
-![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/lowSelector.jpg "efficient selector specificity")
+**Low selector specificity (efficient):**
+```css
+.vehicleHightlight {  }
+```
 
 By using a single class name (without a qualifying tag) as the selector for a module you’re ensuring that, by default, the module that you’re creating is designed to be a stand-alone component. This allows you to drop the component anywhere on any page without regard of the root element or the parent structure.The CSS below does not follow this guideline. It styles the `.vehicleHighlight` relative to the `#sidebar`.
 
