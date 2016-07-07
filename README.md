@@ -127,25 +127,28 @@ A powerful feature of the modular pattern is that **modules are reusable**. On o
 
 **High selector specificity (poor):**
 ```css
-aside.sidebar div.vehicleHightlight {  }
+aside.sidebar div.vehicleHightlight { /*etc*/ }
 ```
 
 **Low selector specificity (efficient):**
 ```css
-.vehicleHightlight {  }
+.vehicleHightlight { /*etc*/  }
 ```
 
 By using a single class name (without a qualifying tag) as the selector for a module you’re ensuring that, by default, the module that you’re creating is designed to be a stand-alone component. This allows you to drop the component anywhere on any page without regard of the root element or the parent structure.The CSS below does not follow this guideline. It styles the `.vehicleHighlight` relative to the `#sidebar`.
-
-![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/highSelector.jpg "poor selector specificity")
+```css
+aside.sidebar div.vehicleHightlight { /*etc*/ }
+```
 
 It assumes “vehicleHighlight” will only ever exist in the sidebar. Later if you need to add “vehicleHightlight” inside a carousel you’ll have to duplicate the same code for the carousel.
-
-![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/carouselVehicle.jpg "poor selector specificity")
+```css
+.carousel li.vehicleHighlight { /*etc*/ }
+```
 
 This code duplication is avoided by using single classes as the selector (**Low selector specificity**).
-
-![alt text](https://github.com/nathanielkess/CSS-Modular-Pattern/raw/master/assets/lowSelector.jpg "efficient selector specificity")
+```css
+.vehicleHighlight { /*etc*/ }
+```
 
 **3. A module’s default style does not have layout or position rules applied**
 
