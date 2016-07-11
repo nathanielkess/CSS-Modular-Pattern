@@ -5,7 +5,7 @@ An in-depth look at thinking about CSS in modular way.
 >This is a port-over into git of a document I wrote to help front-end team members align their CSS coding approach.  It evolved from my experience with [SMACSS](https://smacss.com/ "A flexible guide to developing sites small and large.") and working with enterprise sized web sites.  A condensed styled guide will be availalbe soon. 
 
 ##Overview
-This CSS pattern is an organization technique optimized for large-scale websites. It is based off [SMACSS](https://smacss.com/) and is meant to serve as an approach to authoring CSS and HTML. The goal of this outline is to sync up coding styles for project team members to ensure CSS/html code is predictable, efficient and scalable. 
+This CSS pattern is based off [SMACSS](https://smacss.com/) and is meant to serve as an approach to authoring CSS and HTML. The goal of this pattern is to sync up coding styles for project team members to ensure CSS/html code is predictable, efficient and scalable.
 
 Read the [introduction of SMACSS](https://smacss.com/book/) to get a base understanding for the rest of this document.
 
